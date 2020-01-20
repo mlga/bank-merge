@@ -22,10 +22,12 @@ jobs:
         pip install .[tests]
     - name: Lint with pycodestyle
       run: |
-        pycodestyle --config toolscfg/pycodestylerc bank_merge
+        pycodestyle --config setup.cfg bank_merge
     - name: Lint with pylint
       run: |
         pylint --rcfile toolscfg/pylintrc bank_merge
     - name: Test
       run: |
-        py.test
+        coverage run --source . -m py.test -sv -c setup.cfg --verbose --html=htmltest/report.html --self-contained-html
+        coverage report
+        coverage html
