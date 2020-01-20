@@ -71,3 +71,7 @@ This is to support external output destinations in the future, like databases:
 1. Add your class to [`bank_merge.cli_types.BankOutput`](bank_merge/cli_types.py) `EXTENSIONS` or `SCHEMAS` mapping.
    - `EXTENSIONS` is for local destinations: `output.xls` or `output.doc`
    - `SCHEMAS` is for remote destinations in URI form, like databases: `postgresql://user:pass@localhost/otherdb`
+
+## To Do
+- [ ] Above FAQ is very dense. For true tool, proper documentation for users and developers would be neat.
+- [ ] Tests of `bank_merge.cli_types` module. Handlers matching and URI parsing is done there, it requires extensive testing.
