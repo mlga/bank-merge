@@ -5,10 +5,10 @@
 CLI tool that merges multiple bank transaction documents into one, unified report.
 
 ## Usage
-Clone the repository and install package
+This tool is not available on [PyPi](https://pypi.org/), clone the repository and then install package
 ```bash
-git clone https://github.com/mlga/bank-merge.git
-python bank-merge/setup.py
+git clone https://github.com/mlga/bank-merge.git && cd bank-merge
+pip install .
 ```
 
 Use `bank-merge` command to merge files and get help
