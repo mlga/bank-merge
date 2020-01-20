@@ -1,4 +1,6 @@
 # Bank document merger
+![](https://github.com/mlga/bank-merge/workflows/Build/badge.svg) [![codecov](https://codecov.io/gh/mlga/bank-merge/branch/master/graph/badge.svg)](https://codecov.io/gh/mlga/bank-merge)
+
 CLI tool that merges multiple bank transaction documents into one, unified report.
 
 ## Usage

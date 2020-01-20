@@ -1,4 +1,4 @@
-name: Python package
+name: Build
 
 on: [push]
 
@@ -29,5 +29,12 @@ jobs:
     - name: Test
       run: |
         coverage run --source . -m py.test -sv -c setup.cfg --verbose --html=htmltest/report.html --self-contained-html
-        coverage report
-        coverage html
+        coverage report --rcfile=setup.cfg
+        coverage xml -o coverage.xml
+        coverage html --rcfile=setup.cfg
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        fail_ci_if_error: true
