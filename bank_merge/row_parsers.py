@@ -12,6 +12,7 @@ from bank_merge.common import Row, TransactionType
 
 
 def _transaction_type(value):
+    # pylint: disable=no-else-return
     # it happen to be common now
     if value == 'add':
         return TransactionType.ADD

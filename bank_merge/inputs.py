@@ -20,7 +20,6 @@ class AbstractInput(metaclass=ABCMeta):
         :param path: path to a input file or source URI
         :param row_parser: callable to be applied to every row to convert it to common form
         """
-        pass
 
     @abstractmethod
     def __iter__(self) -> Generator[Row, None, None]:
@@ -29,12 +28,12 @@ class AbstractInput(metaclass=ABCMeta):
 
         :return: Row instances
         """
-        pass
 
 
 class CSVFile(AbstractInput):
 
     def __init__(self, *, path, row_parser) -> None:
+        # pylint: disable=super-init-not-called
         self.path = path
         self.row_parser = row_parser
 

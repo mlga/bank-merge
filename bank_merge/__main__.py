@@ -3,7 +3,7 @@ import itertools
 
 import click
 
-from bank_merge import row_parsers, inputs, outputs, cli
+from bank_merge import row_parsers, inputs, outputs, cli_types
 
 
 @click.command(
@@ -12,23 +12,23 @@ from bank_merge import row_parsers, inputs, outputs, cli
 )
 @click.option(
     '--file-bank1', '-f1', 'bank1_files',
-    type=cli.BankInputFile(row_parser=row_parsers.bank1),
+    type=cli_types.BankInputFile(row_parser=row_parsers.bank1),
     multiple=True,
     help='File to merge, following "bank1" row format. Can be repeated.',
 )
 @click.option(
     '--file-bank2', '-f2', 'bank2_files',
-    type=cli.BankInputFile(row_parser=row_parsers.bank2),
+    type=cli_types.BankInputFile(row_parser=row_parsers.bank2),
     multiple=True,
     help='File to merge, following "bank2" row format. Can be repeated.',
 )
 @click.option(
     '--file-bank3', '-f3', 'bank3_files',
-    type=cli.BankInputFile(row_parser=row_parsers.bank3),
+    type=cli_types.BankInputFile(row_parser=row_parsers.bank3),
     multiple=True,
     help='File to merge, following "bank3" row format. Can be repeated.',
 )
-@click.argument('output', type=cli.BankOutput())
+@click.argument('output', type=cli_types.BankOutput())
 def cli(
         bank1_files: inputs.AbstractInput,
         bank2_files: inputs.AbstractInput,

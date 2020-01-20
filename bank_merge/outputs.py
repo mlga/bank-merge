@@ -18,15 +18,12 @@ class AbstractOutput(metaclass=ABCMeta):
     def __exit__(self, exc_type, exc_value, traceback):
         self.close()
 
-        return None
-
     # public API
     @abstractmethod
     def open(self) -> None:
         """
         Open destination for writing, file or DB connection.
         """
-        pass
 
     @abstractmethod
     def write_row(self, row: Row) -> None:
@@ -35,14 +32,12 @@ class AbstractOutput(metaclass=ABCMeta):
 
         :param row: Row instance
         """
-        pass
 
     @abstractmethod
     def close(self) -> None:
         """
         Close destination, file or DB connection.
         """
-        pass
 
 
 class CSVFile(AbstractOutput):

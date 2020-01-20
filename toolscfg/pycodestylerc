@@ -1,0 +1,4 @@
+[pycodestyle]
+ignore =
+max-line-length = 120
+exclude = .git,migrations,deprecated
