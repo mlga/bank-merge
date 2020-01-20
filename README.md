@@ -44,6 +44,12 @@ Merge two files from the same bank and one file from another:
 $ bank-merge -f1 bank1a.csv -f1 bank1b.csv -f2 bank2.csv output.csv
 ```
 
+## Goals and non-goals
+**Goal**: Do not load whole input files into memory.
+ 
+**Non-goal**: Sort merged rows in output file.  
+**Non-goal**: Validate input header (basically ignore first row).
+
 ## FAQ
 
 ### What input methods are available?
