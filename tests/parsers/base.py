@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+from datetime import date
+
 import pytest
 from hypothesis import given
 from hypothesis.strategies import dates, one_of, decimals, integers, just
@@ -15,7 +17,7 @@ class BaseTest:
         raise NotImplementedError()
 
     @given(
-        transaction_time=dates(),
+        transaction_time=dates(min_value=date(1001, 1, 1), max_value=date(2999, 1, 1)),
         transaction_type=one_of(*[just(variant) for variant in TransactionType]),
         amount=decimals(min_value=0, allow_nan=False, allow_infinity=False),
         from_account=integers(min_value=0),
